@@ -1,0 +1,268 @@
+#lightbulb {
+  font-size: 100px;
+  display: block;
+  text-align: center;
+}
+
+a.color1:link{color: #000000 ; text-decoration:none;} /*常规时候的样式*/
+a.color1:focus{color: #ffffff; text-decoration:none;} /*鼠标指上去的样式*/
+a.color1:hover {color: #000000; text-decoration:none;} /*访问过后的样式*/
+
+.list-group-item-sidebar {
+  position: relative;
+  display: block;
+  padding: 10px 30px;
+  margin-bottom: -1px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  color:#000000;
+  font-size:120%;
+}
+.list-group-item {
+	border-bottom: 1px solid #12aba2
+}
+.list-group-item.active,.list-group-item.active:focus
+{
+	color:#ffffff
+}
+.list-group-item-sidebar.active{
+	background-color: #12aba2;
+	color: #000000;
+}
+
+.list-group-item-sidebar.active,
+.list-group-item-sidebar.active:focus {
+  z-index: 2;
+  color: #000000;
+  background-color: #12aba2;
+  border-color: #12aba2;
+  font-weight:bold;
+}
+
+.list-group-item-sidebar.disabled,
+.list-group-item-sidebar.disabled:focus {
+  background-color: #ffffff;
+  color: #000000;
+  cursor: not-allowed;
+  font-weight:normal;
+}
+
+a.list-group-item-sidebar:focus {
+  text-decoration: none;
+  color: #000000;
+  background-color: #12aba2;
+}
+
+a.list-group-item-sidebar:link{color: #000000 ; text-decoration:none;} /*常规时候的样式*/
+
+
+.box { 
+/*非IE的主流浏览器识别的垂直居中的方法*/ 
+display: table-cell; 
+vertical-align:middle; 
+/*设置水平居中*/ 
+text-align:center; 
+/* 针对IE的Hack */ 
+*display: block; 
+*font-size: 175px;/*约为高度的0.873，200*0.873 约为175*/ 
+*font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/ 
+width:100%; 
+height:120px; 
+} 
+.box img { 
+/*设置图片垂直居中*/ 
+vertical-align:middle; 
+} 
+
+h1 {
+  padding: 0;
+  margin: 10px 0;
+}
+
+.chat-user-avatar {
+  font-size: 40px;
+  background: #ccc;
+  padding: 5px 10px;
+}
+
+.feature-icon {
+  font-size: 44px;
+  padding: 0;
+  line-height: 68px;
+  width: 72px;
+  text-align: center;
+  opacity: .8;
+  border: 3px solid;
+  border-radius: 200px;
+  height: 72px;
+  margin-bottom: 20px;
+}
+
+.feature-icon.fa-gamepad {
+  line-height: 60px;
+}
+
+.feature-icon.fa-tachometer {
+  line-height: 60px;
+}
+
+.app-content-loading {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  position: relative;
+}
+
+.loading-spinner {
+  position: absolute;
+  font-size: 50px;
+  left: 50%;
+  top: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+}
+
+.carousel-example-content {
+  position: absolute;
+  font-size: 50px;
+  line-height: 50px;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  margin-top: -50px;
+}
+
+
+.carousel-item {
+  display: block;
+  color: #444;
+  background: #f4f4f4;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 1;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.carousel {
+  padding: 20px;
+  overflow: visible;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: visible;
+}
+
+.carousel>.item, .carousel-item {
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.carousel-item {
+  -webkit-transition: -webkit-transform 500ms;
+  -moz-transition: -moz-transform 500ms;
+  transition: transform 500ms;
+}
+
+[drag-to-dismiss]{
+  transform: translate(0,0); /* NOTE: this is required to prevent mobile webkit issues */ 
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 1;
+}
+
+.notices-container {
+  overflow-x: hidden;
+}
+
+.dismiss {
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 0.5;
+}
+
+.dismitted {
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 0;
+}
+
+.list-group {
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.list-group-item-home {
+  padding: 20px; 
+}
+
+pre {
+  text-align: left !important;
+}
+
+input.scrollable-header {
+  border-bottom: 3px solid #ccc;
+}
+
+.toucharea {width: 100%; height: 100%;}
+
+
+input:-webkit-autofill,select:-webkit-autofill {    
+    -webkit-box-shadow: 0 0 0px 1000px white  inset !important;    
+}   
+  
+  
+input{  
+    outline-color: invert ;  
+    outline-style: none ;  
+    outline-width: 0px ;  
+    border: none ;  
+    border-style: none ;  
+    text-shadow: none ;  
+    -webkit-appearance: none ;  
+    -webkit-user-select: text ;  
+    outline-color: transparent ;  
+    box-shadow: none;  
+}  
+
+.navbar-fullscreen{
+	min-height:0px;
+	height:0px;
+}
+
+.has-navbar-bottom .appbody-fullscreen {
+  padding-bottom: 0px;
+}
+
+.switch.active{
+	background-color:#12aba2;
+	border: 1px solid #12aba2;
+}
+
+.switch.active .switch-handle {
+	border: 1px solid #12aba2;
+}

@@ -1,0 +1,46 @@
+<div ui-content-for="title">
+    Demo
+</div>
+
+<div class="scrollable">
+    <div class="scrollable-content">
+
+        <div class="section text-left">
+            <span>欢迎参加本次答题</span>
+            <br>
+            <br>
+            <span style="color:#0066ff">本页为该问卷的详细内容，不可回答，仅供预览。如果您要使用该问卷，请点击引用按钮。</span>
+
+        </div>
+
+        <div class="section">
+            {{index}}   {{demo}}
+        </div>
+
+        <!--radio方式选择-->
+        <div class="section">
+            <input id="demo-radio1" type="radio" name="example" value="111" ng-model="demo">
+            <label for="demo-radio1">demo111</label>
+            <input id="demo-radio2" type="radio" name="example" value="222" ng-model="demo">
+            <label for="demo-radio2">demo222</label>
+        </div>
+
+        <!--自定义函数方式选择-->
+        <div class="section list-group">
+            <div class="list-group-item" ng-repeat="answer in answers track by $index"
+                 ng-click="selectValue($index, answer.id, answer)">
+                <!--ng-model需要加$parent前缀是因为在一个ng-repeat中，scope跟ng-repeat之外的
+                scope不是同一个，而是外面scope的一个子scope，所以加一个$repeat前缀之后才能访问
+                到外面scope的变量-->
+                <div class="text-left">
+                    <div ng-if="answer.checked">
+                        <label>{{answer.content}}</label>
+                    </div>
+                    <div ng-if="!answer.checked">
+                        {{answer.content}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

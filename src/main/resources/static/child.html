@@ -1,0 +1,57 @@
+<div ui-content-for="title">
+    儿童家长问卷
+</div>
+
+<div class="scrollable">
+    <div class="scrollable-content">
+        <div class="section">
+            <h4 class="text-center">2018年第一次青岛市口腔健康调查问卷（儿童家长）</h4>
+        </div>
+
+        <div class="section form-group">
+            <span>被调查者 ID 号：</span>
+            <input type="text" ng-model="respondent.id" placeholder="id号"
+                   style="border-bottom: 1px solid black">
+            <br>
+            <span>被调查者姓名：</span>
+            <input type="text" ng-model="respondent.name" placeholder="姓名"
+                   style="border-bottom: 1px solid black">
+            <br>
+            <span>调查日期：</span>
+            <a class="date-picker"></a>
+            <br>
+            <span>调查员编号：</span>
+            <input type="text" ng-model="investigatorId" placeholder="编号"
+                   style="border-bottom: 1px solid black">
+            <br>
+            <br>
+            <b style="color:#0066ff">{{questionnaireNotice}}</b>
+        </div>
+
+        <div class="section list-group">
+            <div class="list-group-item" ng-repeat="question in questions track by $index">
+                <div>
+                    <span>
+                        {{question.id}}. {{question.content}}
+                    </span>
+                </div>
+                <div class="row" ng-repeat="answer in question.answers track by $index"
+                     ng-click="radio($parent.$index, $index, answer)">
+                    <div class="text-left col-xs-1" ng-if="answer.checked">
+                        <i class="fa fa-circle"></i>
+                    </div>
+                    <div class="text-left col-xs-1" ng-if="!answer.checked">
+                        <i class="fa fa-circle-o"></i>
+                    </div>
+                    <div class="text-left col-xs-11">
+                        {{answer.id}} {{answer.answer}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section text-center">
+            <span class="btn btn-default" ng-click="submit">提交</span>
+        </div>
+    </div>
+</div>

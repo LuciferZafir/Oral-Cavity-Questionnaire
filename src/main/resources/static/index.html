@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>口腔调查问卷</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+    <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/mobile-angular-ui-hover.min.css" />
+    <link rel="stylesheet" href="css/mobile-angular-ui-base.min.css" />
+    <link rel="stylesheet" href="css/mobile-angular-ui-desktop.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <script src="js/jquery.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/mobile-angular-ui.min.js"></script>
+    <!-- Required to use $touch, $swipe, $drag and $translate services -->
+    <script src="js/mobile-angular-ui.gestures.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body
+        ng-app="MobileAngularUiExamples"
+        ng-controller="MainController"
+        ui-prevent-touchmove-defaults>
+
+    <div class="navbar navbar-app navbar-absolute-top">
+        <div class="navbar-brand navbar-brand-center" ui-yield-to="title"
+             style="padding-left:60px;padding-right:60px;color:#ffffff;background:#12aba2">
+
+        </div>
+        <div class="btn-group pull-left" ui-yield-to="leftAction">
+            <div class="btn" style="color:#ffffff;">
+
+            </div>
+        </div>
+        <div class="btn-group pull-right" ui-yield-to="rightAction">
+            <div class="btn" style="color:#ffffff;">
+
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="navbar navbar-app navbar-absolute-bottom"-->
+         <!--style="border-color:#fafafa;background:#ffffff"-->
+         <!--ng-class="{'navbar-fullscreen':fullscreen}"-->
+         <!--ui-yield-to="navbarBottom">-->
+    <!--</div>-->
+
+    <!-- App Body -->
+    <div class="app-body" ng-class="{'appbody-fullscreen':fullscreen}">
+        <div ng-show="loading" class="app-content-loading">
+            <i class="fa fa-spinner fa-spin loading-spinner"></i>
+        </div>
+        <div class="app-content">
+            <ng-view></ng-view>
+        </div>
+    </div>
+
+    <div ui-yield-to="modals"></div>
+</body>
+</html>
