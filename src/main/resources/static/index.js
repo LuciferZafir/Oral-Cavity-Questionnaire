@@ -3,7 +3,7 @@
 'use strict';
 // var res_prefix = window.location.origin + "/static/"
 
-// var api_prefix = window.location.origin + "/api/";
+var url_prefix = window.location.origin;
 
 //
 // Here is how to define your module
@@ -170,6 +170,7 @@ app.controller('ChildController', function ($http, $scope, $location) {
 
     ];
 
+    // 题目单选按钮
     $scope.radio = function (index1, index2, answer) {
 
         $scope.questions[index1].answers[index2].checked = true;
@@ -181,6 +182,24 @@ app.controller('ChildController', function ($http, $scope, $location) {
         });
 
         console.log($scope.questions);
+    };
+
+    // 试题提交
+    $scope.submitQuestionnaire = function () {
+        $http({
+            method: 'POST',
+            url: url_prefix + '/questionnaire',
+            data: {
+                // questionnaire: $scope.questions
+                content:"hello world!"
+            },
+            heasers: {
+                'Content-Type':'Application/json',
+                'Accept':'*/*'
+            }
+        }).success(function (res) {
+            console.log(res)
+        })
     }
 });
 

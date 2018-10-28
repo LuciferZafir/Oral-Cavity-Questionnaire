@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--<classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+    <classPathEntry location="C:\Users\ZhangKe\.m2\repository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar" />
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <!--去掉自动生成的文件的所有注释，保留时间戳-->
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/oral_cavity_questionnaire?useSSL=false"
+                        userId="root"
+                        password="newsys4weilai$">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.cgiv.questionnaire.entity"
+                            targetProject="src/main/java">
+            <!--true时允许在目录下建立子目录-->
+            <property name="enableSubPackages" value="false" />
+            <!--修建字符串，即返回字符串的值，但是去掉开头和结尾的空格-->
+            <property name="trimStrings" value="false" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false" /><!---->
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.cgiv.questionnaire.dao"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <table schema="oral_cavity_questionnaire" tableName="investigator"
+               domainObjectName="Investigator" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+            <!--true时使用实际列名对entity命名，false时使用驼峰命名-->
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="ID" sqlStatement="DB2" identity="true" />
+        </table>
+
+        <table schema="oral_cavity_questionnaire" tableName="respondent"
+               domainObjectName="Respondent" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+            <!--true时使用实际列名对entity命名，false时使用驼峰命名-->
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="ID" sqlStatement="DB2" identity="true" />
+        </table>
+
+        <table schema="oral_cavity_questionnaire" tableName="respondent_questionnaire"
+               domainObjectName="RespondentQuestionnaire" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">
+            <!--true时使用实际列名对entity命名，false时使用驼峰命名-->
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="ID" sqlStatement="DB2" identity="true" />
+        </table>
+
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgiv.questionnaire.dao.RespondentQuestionnaireMapper">
+  <resultMap id="BaseResultMap" type="com.cgiv.questionnaire.entity.RespondentQuestionnaire">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="respondent_id" jdbcType="BIGINT" property="respondentId" />
+    <result column="rec_date" jdbcType="DATE" property="recDate" />
+    <result column="score_total" jdbcType="SMALLINT" property="scoreTotal" />
+    <result column="answer" jdbcType="VARCHAR" property="answer" />
+    <result column="questionnaire_id" jdbcType="SMALLINT" property="questionnaireId" />
+    <result column="data_status" jdbcType="SMALLINT" property="dataStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, respondent_id, rec_date, score_total, answer, questionnaire_id, data_status, 
+    create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from respondent_questionnaire
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from respondent_questionnaire
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cgiv.questionnaire.entity.RespondentQuestionnaire">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      VALUES IDENTITY_VAL_LOCAL()
+    </selectKey>
+    insert into respondent_questionnaire (respondent_id, rec_date, score_total, 
+      answer, questionnaire_id, data_status, 
+      create_time, update_time)
+    values (#{respondentId,jdbcType=BIGINT}, #{recDate,jdbcType=DATE}, #{scoreTotal,jdbcType=SMALLINT}, 
+      #{answer,jdbcType=VARCHAR}, #{questionnaireId,jdbcType=SMALLINT}, #{dataStatus,jdbcType=SMALLINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cgiv.questionnaire.entity.RespondentQuestionnaire">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      VALUES IDENTITY_VAL_LOCAL()
+    </selectKey>
+    insert into respondent_questionnaire
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="respondentId != null">
+        respondent_id,
+      </if>
+      <if test="recDate != null">
+        rec_date,
+      </if>
+      <if test="scoreTotal != null">
+        score_total,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+      <if test="questionnaireId != null">
+        questionnaire_id,
+      </if>
+      <if test="dataStatus != null">
+        data_status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="respondentId != null">
+        #{respondentId,jdbcType=BIGINT},
+      </if>
+      <if test="recDate != null">
+        #{recDate,jdbcType=DATE},
+      </if>
+      <if test="scoreTotal != null">
+        #{scoreTotal,jdbcType=SMALLINT},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnaireId != null">
+        #{questionnaireId,jdbcType=SMALLINT},
+      </if>
+      <if test="dataStatus != null">
+        #{dataStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cgiv.questionnaire.entity.RespondentQuestionnaire">
+    update respondent_questionnaire
+    <set>
+      <if test="respondentId != null">
+        respondent_id = #{respondentId,jdbcType=BIGINT},
+      </if>
+      <if test="recDate != null">
+        rec_date = #{recDate,jdbcType=DATE},
+      </if>
+      <if test="scoreTotal != null">
+        score_total = #{scoreTotal,jdbcType=SMALLINT},
+      </if>
+      <if test="answer != null">
+        answer = #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnaireId != null">
+        questionnaire_id = #{questionnaireId,jdbcType=SMALLINT},
+      </if>
+      <if test="dataStatus != null">
+        data_status = #{dataStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cgiv.questionnaire.entity.RespondentQuestionnaire">
+    update respondent_questionnaire
+    set respondent_id = #{respondentId,jdbcType=BIGINT},
+      rec_date = #{recDate,jdbcType=DATE},
+      score_total = #{scoreTotal,jdbcType=SMALLINT},
+      answer = #{answer,jdbcType=VARCHAR},
+      questionnaire_id = #{questionnaireId,jdbcType=SMALLINT},
+      data_status = #{dataStatus,jdbcType=SMALLINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

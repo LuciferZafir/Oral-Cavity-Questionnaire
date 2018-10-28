@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url:
-    username:
-    password:
+    url: jdbc:mysql://localhost:3306/oral_cavity_questionnaire?characterEncoding=utf8&useSSL=false
+    username: root
+    password: newsys4weilai$
     driver-class-name: com.mysql.jdbc.Driver
   thymeleaf:
     cache: false
@@ -10,3 +10,7 @@ spring:
 
 server:
   port: 2333
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.cgiv.questionnaire.dao
