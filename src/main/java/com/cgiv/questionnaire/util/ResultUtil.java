@@ -12,7 +12,7 @@ public class ResultUtil {
     public static Result success(Object object) {
         Result result = new Result();
 
-        result.setStatus(0);
+        result.setStatus(200);
         result.setMsg("success");
         result.setData(object);
 
@@ -23,13 +23,25 @@ public class ResultUtil {
         return success(null);
     }
 
-    public static Result error() {
+    public static Result error(int status, String msg, Object object) {
         Result result = new Result();
 
-        result.setStatus(1);
-        result.setMsg("failure");
-        result.setData(null);
+        result.setStatus(status);
+        result.setMsg(msg);
+        result.setData(object);
 
         return result;
+    }
+
+    public static Result error(String msg) {
+        return error(500, msg, null);
+    }
+
+    public static Result error(Object object) {
+        return error(500, "failure", object);
+    }
+
+    public static Result error() {
+        return error("failure");
     }
 }

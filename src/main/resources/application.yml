@@ -10,6 +10,8 @@ spring:
 
 server:
   port: 2333
+  servlet:
+    context-path: /oral
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml

@@ -2,8 +2,12 @@ package com.cgiv.questionnaire.controller;
 
 import com.cgiv.questionnaire.entity.RespondentQuestionnaire;
 import com.cgiv.questionnaire.entity.Result;
-import com.cgiv.questionnaire.util.ResultUtil;
+import com.cgiv.questionnaire.service.RespondentQuestionnaireService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import java.time.LocalDate;
 
 /**
  * @Author: ZhangKe
@@ -14,13 +18,27 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/questionnaire")
 public class QuestionnaireController {
 
-    /**
-     *
-     * state:
-     */
-    @GetMapping(value = "")
-    public Result getQuestionnaire() {
+    @Resource
+    private RespondentQuestionnaireService questionService;
 
-        return ResultUtil.success("Hello World");
+    /**
+     * 试题提交
+     * state: OK
+     */
+    @PostMapping(value = "")
+    public Result submitQuestionnaire(
+            @RequestBody RespondentQuestionnaire respondentQuestionnaire) {
+
+        return questionService.submitQuestionnaire(respondentQuestionnaire);
+    }
+
+    /**
+     * 时间传输测试
+     * state: OK
+     */
+    @GetMapping(value = "/time")
+    public void timeUpload(@RequestParam @DateTimeFormat(pattern = "yyyy/MM/dd") LocalDate date) {
+
+        System.out.println("----------Zhangke.com----------" + date);
     }
 }
